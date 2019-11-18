@@ -1,0 +1,19 @@
+body {
+  background-color: $white;
+  nav {
+    background-color: $black;
+    a {
+      color: $white;
+      &:hover {
+        color: $yellow;
+      }
+    }
+    .btn {
+      color: $white;
+      border-color: $white;
+      &:hover {
+        background-color: $yellow;
+      }
+    }
+  }
+}

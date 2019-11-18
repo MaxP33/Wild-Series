@@ -1,25 +1,3 @@
 @import "~bootstrap/scss/bootstrap";
-
-$white: #ffffff;
-$black: #2D2D2D;
-$yellow: #f7d633;
-
-body {
-    background-color: $white;
-    nav {
-        background-color: $black;
-        a {
-            color: $white;
-            &:hover {
-                color: $yellow;
-            }
-        }
-        .btn {
-            color: $white;
-            border-color: $white;
-            &:hover {
-                background-color: $yellow;
-            }
-        }
-    }
-}
+@import "variables";
+@import "home";
