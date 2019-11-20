@@ -42,6 +42,18 @@ class Program
         return $this->id;
     }
 
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
     public function getSummary(): ?string
     {
         return $this->summary;
@@ -62,18 +74,6 @@ class Program
     public function setPoster(?string $poster): self
     {
         $this->poster = $poster;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
 
         return $this;
     }
