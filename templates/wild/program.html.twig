@@ -15,11 +15,11 @@
                     <a href="{{ path('wild_program_season', {'slug' : slug, 'id' : season.id}) }}">{{ season.description }}</a>
                     </div>
                 {% endfor %}
+            <div>
+                <a href="{{ path('wild_index') }}">
+                    Retour à l'accueil des séries
+                </a>
+            </div>
         </div>
     </div>
-
-    <a href="{{ path('wild_index') }}">
-        Retour à l'accueil des séries
-    </a>
-
 {% endblock %}
