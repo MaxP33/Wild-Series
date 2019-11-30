@@ -4,6 +4,12 @@
 
 {% block body %}
     <h1>Toutes les séries de la table program : </h1>
+    <div class="container d-flex justify-content-center">
+        {{ form_start(form) }}
+        {{ form_row(form.searchField) }}
+        <button type="submit" name="btnSearch">Rechercher</button>
+        {{ form_end(form) }}
+    </div>
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
