@@ -21,7 +21,7 @@
                 <td>{{ program.id }}</td>
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
-                <td class="text-truncate">{{ program.poster }}</td>
+                <td><img src="{{ program.poster }}" alt="poster de la série" class="w-50"></td>
                 <td>
                     <a href="{{ path('program_show', {'id': program.id}) }}">show</a>
                     <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
