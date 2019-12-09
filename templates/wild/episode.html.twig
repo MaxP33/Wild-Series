@@ -10,7 +10,20 @@
             <h2 class="mt-0">{{ season.description }}</h2>
             <h3>Episode {{ episode.number }} : {{ episode.title }}</h3>
             <p>{{ episode.synopsis }}</p>
+            {% for comment in comments %}
+                <h3>Commentaires et notes :</h3>
+                <p>{{ comment.comment }} {{ comment.rate }}</p>
+            {% endfor %}
         </div>
+    </div>
+
+    <div class="container">
+        {% if app.user %}
+        <h3>Add a comment</h3>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        {% endif %}
     </div>
 
     <a href="{{ path('wild_program_season', {'id' : season.id}) }}">
