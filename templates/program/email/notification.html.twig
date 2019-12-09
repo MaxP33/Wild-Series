@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: black;
+        }
+        body h1, body a {
+            color: #f7d633;
+        }
+    </style>
+</head>
+<body>
+    <h1>Une nouvelle série vient d'être publiée sur Wild Séries !</h1>
+    <p>{{ program.title }} est en ligne !</p>
+    <img src="{{ program.poster }}" alt="poster de la série {{ program.title }}">
+    <a href="http://127.0.0.1:8000/program/{{ program.title }}">Voir la série</a>
+</body>
+</html>
