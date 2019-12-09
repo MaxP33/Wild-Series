@@ -44,7 +44,12 @@
                 <a class="nav-link" href="#">Inscription <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Connexion</a>
+                {% if app.user %}
+                    {#{{ app.user.email }}#}
+                    <a class="nav-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                {% else %}
+                    <a class="nav-link" href="{{ path('app_login') }}"> Se connecter</a>
+                {% endif %}
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
