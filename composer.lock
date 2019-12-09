@@ -4496,16 +4496,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v4.3.7",
+            "version": "v4.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "d295626ee5294dde825efa4ef5be5c65a37f21b3"
+                "reference": "8d157b5a96c2d7561e29eca3574344727482d3fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/d295626ee5294dde825efa4ef5be5c65a37f21b3",
-                "reference": "d295626ee5294dde825efa4ef5be5c65a37f21b3",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/8d157b5a96c2d7561e29eca3574344727482d3fb",
+                "reference": "8d157b5a96c2d7561e29eca3574344727482d3fb",
                 "shasum": ""
             },
             "require": {
@@ -4517,7 +4517,7 @@
                 "symfony/security-core": "~4.3",
                 "symfony/security-csrf": "~4.2",
                 "symfony/security-guard": "~4.2",
-                "symfony/security-http": "^4.3"
+                "symfony/security-http": "~4.3.9|^4.4.1"
             },
             "conflict": {
                 "symfony/browser-kit": "<4.2",
@@ -4576,7 +4576,7 @@
             ],
             "description": "Symfony SecurityBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-10-30T13:18:51+00:00"
+            "time": "2019-11-30T13:16:45+00:00"
         },
         {
             "name": "symfony/security-core",
