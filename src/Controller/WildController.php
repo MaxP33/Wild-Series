@@ -158,7 +158,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/program/{program}/season/{season}/episode/{episode}", name="program_season_episode")
+     * @Route("/program/season/episode/{episode}", name="program_season_episode")
      * @param Episode $episode
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -180,8 +180,9 @@ class WildController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirectToRoute('wild_program_season_episode', ['program' => $program->getId(), 'season' => $season->getId(), 'episode' => $episode->getId()]);
+            return $this->redirectToRoute('wild_program_season_episode', ['episode' => $episode->getId()]);
         }
+
         return $this->render('wild/episode.html.twig', [
             'season'   => $season,
             'program'  => $program,
@@ -189,6 +190,24 @@ class WildController extends AbstractController
             'comments' => $comments,
             'form'     => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{comment}", name="comment_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Comment $comment
+     * @return Response
+     */
+    public function deleteCommentUser(Request $request, Comment $comment): Response
+    {
+        $episode = $comment->getEpisode();
+        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($comment);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('wild_program_season_episode', ['episode' => $episode->getId()]);
     }
 
     /**

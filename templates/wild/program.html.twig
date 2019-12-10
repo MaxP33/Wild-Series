@@ -16,6 +16,11 @@
                     </div>
                 {% endfor %}
             <div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+                {% endif %}
+            </div>
+            <div>
                 <a href="{{ path('wild_index') }}">
                     Retour à l'accueil des séries
                 </a>

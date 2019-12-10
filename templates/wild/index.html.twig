@@ -13,6 +13,7 @@
     {% for program in programs %}
         <div>
             <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <a href="{{ path('wild_program', {'slug' : program.slug}) }}">Lien vers la série</a>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}

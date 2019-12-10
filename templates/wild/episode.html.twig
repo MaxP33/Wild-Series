@@ -12,7 +12,11 @@
             <p>{{ episode.synopsis }}</p>
             {% for comment in comments %}
                 <h3>Commentaires et notes :</h3>
-                <p>{{ comment.comment }} {{ comment.rate }}</p>
+                <p>{{ comment.comment }}</p>
+                <p>{{ comment.rate }}</p>
+                {% if app.user.id is defined and app.user.id == comment.author.id %}
+                    {{ include('wild/delete_comment_user_form.html.twig') }}
+                {% endif %}
             {% endfor %}
         </div>
     </div>
