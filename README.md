@@ -30,3 +30,6 @@ https://www.loom.com/share/ce59a55b02394271a4627aa31fe86fbf
 
 Quest 18
 https://www.loom.com/share/789ddda4df8844d5bebf7ce8de134027
+
+Quest 19 
+https://www.loom.com/share/0f97c8a4c33c4263b606ebb4082b9077
