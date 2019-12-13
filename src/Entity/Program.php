@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProgramRepository")
- * @UniqueEntity(fields={"title"}, message="This title already exists")
+ * @UniqueEntity(fields={"title"}, message="Cette série existe déjà")
  */
 class Program
 {
