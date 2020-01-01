@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
             $program->setSummary($faker->text(100));
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
-            $program->setCategory($this->getReference("category_".rand(139,1000)));
+            $program->setCategory($this->getReference("category_".rand(1,1000)));
             $manager->persist($program);
         }
 
