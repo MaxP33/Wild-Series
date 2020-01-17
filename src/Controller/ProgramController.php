@@ -9,6 +9,7 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
@@ -58,6 +59,7 @@ class ProgramController extends AbstractController
                 ]));
 
             $mailer->send($email);
+            $this->addFlash('success', 'La série a bien été ajoutée');
             return $this->redirectToRoute('program_index');
         }
 
@@ -96,6 +98,7 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'La série a bien été modifiée');
             return $this->redirectToRoute('program_index');
         }
 
@@ -115,7 +118,7 @@ class ProgramController extends AbstractController
             $entityManager->remove($program);
             $entityManager->flush();
         }
-
+        $this->addFlash('danger', 'La série a bien été supprimée');
         return $this->redirectToRoute('program_index');
     }
 }

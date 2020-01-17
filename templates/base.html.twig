@@ -10,6 +10,13 @@
     <body>
         <header>
             {% include '_navbar.html.twig' %}
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
         </header>
         {% block body %}
         {% endblock %}
