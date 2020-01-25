@@ -8,12 +8,12 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>Actors</th>
-                <th>actions</th>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'program.title'|trans }}</th>
+                <th>{{ 'program.summary'|trans }}</th>
+                <th>{{ 'program.poster'|trans }}</th>
+                <th>{{ 'program.actors'|trans }}</th>
+                <th>{{ 'program.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -30,23 +30,23 @@
                            {{ actor.name }}
                         </li>
                         {% else %}
-                               Aucun acteur
+                            {{ 'actor.none'|trans }}
                         {% endfor %}
                     </ul>
                 </td>
                 <td>
-                    <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
-                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                    <a href="{{ path('program_show', {'slug': program.slug}) }}">{{ 'show'|trans }}</a>
+                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">{{ 'program.none'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('program_new') }}">Créer une série</a>
-    <a href="{{ path('season_index') }}">Liste des saisons</a>
+    <a href="{{ path('program_new') }}">{{ 'program.new'|trans }}</a>
+    <a href="{{ path('season_index') }}">{{ 'season.list'|trans }}</a>
 {% endblock %}

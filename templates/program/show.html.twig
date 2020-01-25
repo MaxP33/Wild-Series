@@ -3,40 +3,40 @@
 {% block title %}Program{% endblock %}
 
 {% block body %}
-    <h1>Program</h1>
+    <h1>{{ 'program'|trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'id'|trans }}</th>
                 <td>{{ program.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>{{ 'program.title'|trans }}</th>
                 <td>{{ program.title }}</td>
             </tr>
             <tr>
-                <th>Summary</th>
+                <th>{{ 'program.summary'|trans }}</th>
                 <td>{{ program.summary }}</td>
             </tr>
             <tr>
-                <th>Poster</th>
+                <th>{{ 'program.poster'|trans }}</th>
                 <td><img src="{{ program.poster }}" alt="poster de la série" class="w-25"></td>
             </tr>
         </tbody>
     </table>
-    <strong>Acteur :</strong>
+    <strong>{{ 'program.actors'|trans }} :</strong>
     <ul>
         {% for actor in program.actors %}
             <li><a href="{{ path('wild_actor', {'name': actor.name}) }}">{{ actor.name }}</a></li>
         {% else %}
-            <li>Aucun acteur pour cette série</li>
+            <li>{{ 'actor.none'|trans }}</li>
         {% endfor %}
     </ul>
 
-    <a href="{{ path('program_index') }}">back to list</a>
+    <a href="{{ path('program_index') }}">{{ 'program.list'|trans }}</a>
 
-    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+    <a href="{{ path('program_edit', {'slug': program.slug}) }}">{{ 'edit'|trans }}</a>
 
     {{ include('program/_delete_form.html.twig') }}
 {% endblock %}
