@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Episode index{% endblock %}
+{% block title %}{{ 'episode'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Episode index</h1>
+    <h1>{{ 'episode'|trans }}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Number</th>
-                <th>Synopsis</th>
-                <th>actions</th>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'episode.title'|trans }}</th>
+                <th>{{ 'episode.number'|trans }}</th>
+                <th>{{ 'episode.synopsis'|trans }}</th>
+                <th>{{ 'episode.action'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -23,18 +23,18 @@
                 <td>{{ episode.number }}</td>
                 <td>{{ episode.synopsis }}</td>
                 <td>
-                    <a href="{{ path('episode_show', {'slug': episode.slug}) }}">show</a>
-                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+                    <a href="{{ path('episode_show', {'slug': episode.slug}) }}">{{ 'show'|trans }}</a>
+                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">{{ 'edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">{{ 'episode.none'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('episode_new') }}">Créer un épisode</a>
-    <a href="{{ path('season_index') }}">Liste des saisons</a>
+    <a href="{{ path('episode_new') }}">{{ 'episode.new'|trans }}</a>
+    <a href="{{ path('season_index') }}">{{ 'season.list'|trans }}</a>
 {% endblock %}
