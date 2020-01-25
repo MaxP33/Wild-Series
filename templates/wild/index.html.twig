@@ -3,23 +3,23 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1>{{ 'program'|trans }}</h1>
     <div class="container d-flex justify-content-center">
         {{ form_start(form) }}
         {{ form_row(form.searchField) }}
-        <button type="submit" name="btnSearch">Rechercher</button>
+        <button type="submit" name="btnSearch">{{ 'search'|trans }}</button>
         {{ form_end(form) }}
     </div>
     {% for program in programs %}
         <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-            <a href="{{ path('wild_program', {'slug' : program.slug}) }}">Lien vers la série</a>
+            <h2>{{ loop.index }} / {{ program.title }} - {{ 'category'|trans }} : {{ program.category.name }}</h2>
+            <a href="{{ path('wild_program', {'slug' : program.slug}) }}">{{ 'program'|trans }}</a>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
-        Aucune série trouvée.
+        {{ 'program.none'|trans }}
     {% endfor %}
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        {{ 'homepage'|trans }}
     </a>
 {% endblock %}

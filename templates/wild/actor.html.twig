@@ -10,9 +10,9 @@
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
-        Aucun acteur trouvé.
+        {{ 'actor.none'|trans }}
     {% endfor %}
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        {{ 'homepage'|trans }}
     </a>
 {% endblock %}

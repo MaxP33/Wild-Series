@@ -9,7 +9,7 @@
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
-            <p>Categorie : {{ program.category.name }}</p>
+            <p>{{ 'category'|trans }} : {{ program.category.name }}</p>
                 {% for season in seasons %}
                     <div>
                     <a href="{{ path('wild_program_season', {'slug' : slug, 'id' : season.id}) }}">{{ season.description }}</a>
@@ -17,12 +17,12 @@
                 {% endfor %}
             <div>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+                    <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">{{ 'edit'|trans }}</a>
                 {% endif %}
             </div>
             <div>
                 <a href="{{ path('wild_index') }}">
-                    Retour à l'accueil des séries
+                    {{ 'program.list'|trans }}
                 </a>
             </div>
         </div>

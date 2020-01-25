@@ -11,7 +11,7 @@
             <h3>Episode {{ episode.number }} : {{ episode.title }}</h3>
             <p>{{ episode.synopsis }}</p>
             {% for comment in comments %}
-                <h3>Commentaires et notes :</h3>
+                <h3>{{ 'comment'|trans }} && {{ 'comment.rate'|trans }} :</h3>
                 <p>{{ comment.comment }}</p>
                 <p>{{ comment.rate }}</p>
                 {% if app.user.id is defined and app.user.id == comment.author.id %}
@@ -23,7 +23,7 @@
 
     <div class="container">
         {% if app.user %}
-        <h3>Add a comment</h3>
+        <h3>{{ 'comment.new'|trans }}</h3>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
@@ -31,7 +31,7 @@
     </div>
 
     <a href="{{ path('wild_program_season', {'id' : season.id}) }}">
-        Retour à la {{ season.description }}
+        {{ 'season'|trans }}
     </a>
 
 {% endblock %}
