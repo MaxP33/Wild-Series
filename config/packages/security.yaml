@@ -37,8 +37,8 @@ security:
         ROLE_ADMIN:  ROLE_SUBSCRIBER
 
     access_control:
-        - { path: ^/program, roles: ROLE_ADMIN }
-        - { path: ^/season, roles: ROLE_ADMIN }
-        - { path: ^/episode, roles: ROLE_ADMIN }
-        - { path: ^/actor, roles: ROLE_ADMIN }
-        - { path: ^/comment, roles: ROLE_ADMIN }
+        - { path: ^/(%locales%)/program, roles: ROLE_ADMIN }
+        - { path: ^/(%locales%)/season, roles: ROLE_ADMIN }
+        - { path: ^/(%locales%)/episode, roles: ROLE_ADMIN }
+        - { path: ^/(%locales%)/actor, roles: ROLE_ADMIN }
+        - { path: ^/(%locales%)/comment, roles: ROLE_ADMIN }
