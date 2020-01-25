@@ -8,57 +8,63 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Séries
+                    {{ 'series.title'|trans }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('wild_index') }}">Toutes les séries</a>
+                    <a class="dropdown-item" href="{{ path('wild_index') }}">{{ 'all.series'|trans }}</a>
                     <a class="dropdown-item" href="{{ path('wild_program', { 'slug': "walking-dead" }) }}">Walking dead</a>
                     <a class="dropdown-item" href="{{ path('program_index')}}">CRUD</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ path('wild_show_category', { 'categoryName': "horreur" }) }}">Horreur</a>
+                    <a class="dropdown-item" href="{{ path('wild_show_category', { 'categoryName': "horreur" }) }}">{{ 'category.horror'|trans }}</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catégories
+                    {{ 'categories'|trans }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('category_add') }}">Ajouter une catégorie</a>
+                    <a class="dropdown-item" href="{{ path('category_add') }}">{{ 'category.add'|trans }}</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Acteurs
+                    {{ 'actors'|trans }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('wild_actor', { 'name': 'andrew lincoln'}) }}">Andrew Lincoln</a>
                     <a class="dropdown-item" href="{{ path('wild_actor', { 'name': 'norman reedus'}) }}">Norman Reedus</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mes Favoris</a>
+                <a class="nav-link" href="#">{{ 'favorites'|trans }}</a>
             </li>
             <li class="nav-item">
                 {% if app.user %}
-                <a class="nav-link" href="{{ path('app_profile') }}">{{ app.user.email }}<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('app_profile') }}">
+                    {% trans with {'%username%': app.user.email} %}hello_username{% endtrans %}
+                    <span class="sr-only">(current)</span></a>
                 {% else %}
-                <a class="nav-link" href="{{ path('app_register') }}">Inscription <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('app_register') }}">{{ 'register'|trans }} <span class="sr-only">(current)</span></a>
                 {% endif %}
             </li>
             <li class="nav-item">
                 {% if app.user %}
                     {#{{ app.user.email }}#}
-                    <a class="nav-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                    <a class="nav-link" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
                 {% else %}
-                    <a class="nav-link" href="{{ path('app_login') }}"> Se connecter</a>
+                    <a class="nav-link" href="{{ path('app_login') }}"> {{ 'account.login'|trans }}</a>
                 {% endif %}
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'language'|trans }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09">
+                    <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'}))}}"><span class="flag-icon flag-icon-e,"> </span>Français</a>
+                    <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}"><span class="flag-icon flag-icon-e,"> </span>Anglais</a>
+                    <a class="dropdown-item" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'}))}}"><span class="flag-icon flag-icon-es"> </span>Espagnol</a>
+                </div>
+            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit">Rechercher</button>
-        </form>
     </div>
 </nav>
