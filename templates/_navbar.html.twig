@@ -24,6 +24,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('category_add') }}">{{ 'category.add'|trans }}</a>
+                    {{ render(path('category_nav')) }}
                 </div>
             </li>
             <li class="nav-item dropdown">

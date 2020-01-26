@@ -42,4 +42,18 @@ class CategoryController extends AbstractController
             'message' => $message,
         ]);
     }
+
+    /**
+     * @Route("/nav", name="nav")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function show(EntityManagerInterface $em): Response
+    {
+        $categories = $em->getRepository(Category::class)->findAll();
+
+        return $this->render('category/_nav_categories.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
 }
